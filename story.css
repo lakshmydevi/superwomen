@@ -736,12 +736,16 @@ body {
     transform: none !important;
 }
 
-/* Hide moon in story scenes 1–9 */
-#story:not(.scene-final) .moon {
+/* =========================================
+   MOON CONTROL
+   Scenes 1–9: hidden
+   Scenes 10–12: visible
+========================================= */
+
+#story.stretch-image .moon {
     display: none;
 }
 
-/* Keep moon visible in the final scene */
-#story.scene-final .moon {
+#story:not(.stretch-image) .moon {
     display: block;
 }
