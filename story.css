@@ -735,3 +735,13 @@ body {
 #story:not(.stretch-image) #sceneImage {
     transform: none !important;
 }
+
+/* Hide moon in story scenes 1–9 */
+#story:not(.scene-final) .moon {
+    display: none;
+}
+
+/* Keep moon visible in the final scene */
+#story.scene-final .moon {
+    display: block;
+}
