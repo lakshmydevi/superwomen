@@ -3651,3 +3651,43 @@ body {
         transform: scale(1.08);
     }
 }
+/* =========================================
+   NOVA MOBILE SCROLL FIX
+   ========================================= */
+
+@media (max-width: 700px) {
+
+    html,
+    body {
+        height: auto;
+        min-height: 100%;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
+
+    .space-screen {
+        height: auto;
+        min-height: 100vh;
+        overflow: visible;
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 80px;
+    }
+
+    .shield-container {
+        width: 100%;
+        height: 650px;
+        min-height: 650px;
+        margin-top: 80px;
+        transform: scale(0.78);
+        flex-shrink: 0;
+        overflow: visible;
+    }
+
+    .space-status {
+        position: relative;
+        bottom: auto;
+        left: auto;
+        margin: 20px 15px 0;
+    }
+}
