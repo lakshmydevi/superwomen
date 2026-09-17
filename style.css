@@ -1,0 +1,3653 @@
+/* =========================================
+   NOVA SIGNAL
+   STEP 1 - SUPERHERO INTRO SCREEN
+========================================= */
+
+
+/* =========================================
+   BASIC RESET
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: #030611;
+    color: white;
+    overflow-x: hidden;
+}
+
+
+/* =========================================
+   MAIN SCREEN
+========================================= */
+
+.hero-screen {
+    min-height: 100vh;
+    width: 100%;
+
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at 70% 45%,
+            rgba(72, 40, 180, 0.25),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(0, 150, 255, 0.15),
+            transparent 30%
+        ),
+        #030611;
+}
+
+
+/* =========================================
+   STAR BACKGROUND
+========================================= */
+
+.stars {
+    position: absolute;
+
+    width: 100%;
+    height: 100%;
+
+    background-image:
+        radial-gradient(circle, rgba(255,255,255,0.8) 1px, transparent 1px),
+        radial-gradient(circle, rgba(100,180,255,0.5) 1px, transparent 1px);
+
+    background-size:
+        90px 90px,
+        140px 140px;
+
+    background-position:
+        0 0,
+        40px 70px;
+
+    opacity: 0.25;
+
+    animation: starMove 20s linear infinite;
+}
+
+@keyframes starMove {
+
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-90px);
+    }
+
+}
+
+
+/* =========================================
+   BACKGROUND GLOW
+========================================= */
+
+.glow {
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(80px);
+
+    pointer-events: none;
+}
+
+.glow-one {
+    width: 350px;
+    height: 350px;
+
+    background: rgba(0, 120, 255, 0.25);
+
+    left: -100px;
+    top: 20%;
+}
+
+.glow-two {
+    width: 400px;
+    height: 400px;
+
+    background: rgba(130, 40, 255, 0.20);
+
+    right: -100px;
+    bottom: 10%;
+}
+
+
+/* =========================================
+   SUPERHERO AREA
+========================================= */
+
+.superhero {
+
+    position: relative;
+
+    width: 45%;
+    min-height: 700px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    z-index: 2;
+
+    animation: heroEntrance 1.5s ease-out;
+}
+
+@keyframes heroEntrance {
+
+    0% {
+        opacity: 0;
+        transform: translateY(80px) scale(0.9);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+
+/* =========================================
+   HERO IMAGE CONTAINER
+========================================= */
+
+.hero-image-container {
+
+    position: relative;
+
+    width: 430px;
+    height: 600px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+}
+
+
+/* =========================================
+   ENERGY CIRCLE
+========================================= */
+
+.energy-circle {
+
+    position: absolute;
+
+    width: 420px;
+    height: 420px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(0, 180, 255, 0.6);
+
+    box-shadow:
+        0 0 30px rgba(0, 150, 255, 0.4),
+        inset 0 0 30px rgba(80, 60, 255, 0.2);
+
+    animation:
+        energyPulse 3s ease-in-out infinite,
+        rotateCircle 18s linear infinite;
+}
+
+.energy-circle::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 25px;
+
+    border-radius: 50%;
+
+    border: 1px dashed rgba(130, 80, 255, 0.5);
+
+}
+
+.energy-circle::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 55px;
+
+    border-radius: 50%;
+
+    border: 1px solid rgba(0, 190, 255, 0.25);
+
+}
+
+@keyframes energyPulse {
+
+    0%,
+    100% {
+        transform: scale(0.98);
+        opacity: 0.7;
+    }
+
+    50% {
+        transform: scale(1.04);
+        opacity: 1;
+    }
+
+}
+
+@keyframes rotateCircle {
+
+    from {
+        rotate: 0deg;
+    }
+
+    to {
+        rotate: 360deg;
+    }
+
+}
+
+
+/* =========================================
+   HERO PLACEHOLDER
+========================================= */
+
+.hero-placeholder {
+
+    width: 280px;
+    height: 470px;
+
+    position: relative;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 140px 140px 40px 40px;
+
+    background:
+        linear-gradient(
+            160deg,
+            rgba(50, 90, 150, 0.35),
+            rgba(30, 15, 80, 0.5)
+        );
+
+    border: 1px solid rgba(120, 190, 255, 0.4);
+
+    box-shadow:
+        0 0 50px rgba(0, 130, 255, 0.35),
+        inset 0 0 50px rgba(100, 60, 255, 0.15);
+
+    animation: floatingHero 4s ease-in-out infinite;
+}
+
+@keyframes floatingHero {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+
+}
+
+
+/* =========================================
+   NOVA SYMBOL
+========================================= */
+
+.hero-symbol {
+
+    width: 110px;
+    height: 110px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: 55px;
+    font-weight: 700;
+
+    color: white;
+
+    border: 2px solid rgba(100, 210, 255, 0.8);
+
+    background: rgba(0, 110, 220, 0.15);
+
+    box-shadow:
+        0 0 20px rgba(0, 180, 255, 0.7),
+        0 0 60px rgba(90, 50, 255, 0.4);
+
+    animation: symbolGlow 2s ease-in-out infinite;
+}
+
+@keyframes symbolGlow {
+
+    0%,
+    100% {
+        box-shadow:
+            0 0 20px rgba(0, 180, 255, 0.6),
+            0 0 50px rgba(90, 50, 255, 0.3);
+    }
+
+    50% {
+        box-shadow:
+            0 0 35px rgba(0, 200, 255, 0.9),
+            0 0 80px rgba(100, 60, 255, 0.5);
+    }
+
+}
+
+
+/* =========================================
+   CONVERSATION PANEL
+========================================= */
+
+.conversation {
+
+    position: relative;
+
+    width: 470px;
+
+    padding: 30px;
+
+    margin-right: 8%;
+
+    border-radius: 24px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(20, 30, 60, 0.82),
+            rgba(7, 10, 25, 0.92)
+        );
+
+    border: 1px solid rgba(100, 190, 255, 0.25);
+
+    box-shadow:
+        0 25px 80px rgba(0, 0, 0, 0.5),
+        0 0 40px rgba(0, 120, 255, 0.08);
+
+    backdrop-filter: blur(20px);
+
+    z-index: 5;
+
+    animation: chatEntrance 1.2s ease-out 0.3s both;
+}
+
+@keyframes chatEntrance {
+
+    0% {
+        opacity: 0;
+        transform: translateX(70px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+}
+
+
+/* =========================================
+   CHAT HEADER
+========================================= */
+
+.conversation-header {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    padding-bottom: 20px;
+
+    margin-bottom: 25px;
+
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    color: rgba(190,220,255,0.8);
+}
+
+
+/* Online dot */
+
+.online-dot {
+
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #00d9ff;
+
+    box-shadow:
+        0 0 8px #00d9ff,
+        0 0 18px rgba(0,217,255,0.6);
+
+    animation: onlinePulse 1.5s infinite;
+}
+
+@keyframes onlinePulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
+
+}
+
+
+/* =========================================
+   MESSAGE
+========================================= */
+
+.message {
+
+    margin-bottom: 22px;
+
+}
+
+.message-name {
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: 12px;
+
+    letter-spacing: 2px;
+
+    margin-bottom: 10px;
+
+    color: #69d7ff;
+}
+
+.message-text {
+
+    padding: 17px 19px;
+
+    border-radius: 16px 16px 16px 4px;
+
+    background: rgba(30, 50, 90, 0.45);
+
+    border: 1px solid rgba(100, 180, 255, 0.12);
+
+    color: rgba(255,255,255,0.88);
+
+    font-size: 14px;
+
+    line-height: 1.7;
+}
+
+.message-text p {
+    margin-bottom: 7px;
+}
+
+.message-text p:last-child {
+    margin-bottom: 0;
+}
+
+.message-text strong {
+    color: #70dcff;
+}
+
+
+/* =========================================
+   BIG QUESTION
+========================================= */
+
+.big-question {
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: 20px;
+
+    font-weight: 600;
+
+    letter-spacing: 0.5px;
+
+    color: white;
+
+    margin-top: 5px;
+}
+
+
+/* =========================================
+   INPUT AREA
+========================================= */
+
+.user-input-area {
+
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 28px;
+}
+
+
+/* Input */
+
+.user-input-area input {
+
+    flex: 1;
+
+    height: 54px;
+
+    padding: 0 18px;
+
+    border-radius: 12px;
+
+    outline: none;
+
+    border: 1px solid rgba(100, 190, 255, 0.25);
+
+    background: rgba(0,0,0,0.3);
+
+    color: white;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 14px;
+
+    transition: 0.3s;
+}
+
+.user-input-area input::placeholder {
+
+    color: rgba(255,255,255,0.35);
+}
+
+.user-input-area input:focus {
+
+    border-color: rgba(70, 200, 255, 0.8);
+
+    box-shadow:
+        0 0 15px rgba(0,160,255,0.2);
+}
+
+
+/* =========================================
+   SEND BUTTON
+========================================= */
+
+.user-input-area button {
+
+    width: 54px;
+    height: 54px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    color: white;
+
+    font-size: 25px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #087cff,
+            #7b35ff
+        );
+
+    box-shadow:
+        0 0 20px rgba(60,100,255,0.35);
+
+    transition: 0.3s;
+}
+
+.user-input-area button:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 0 30px rgba(60,140,255,0.6);
+}
+
+.user-input-area button:active {
+
+    transform: scale(0.95);
+}
+
+
+/* =========================================
+   INPUT HINT
+========================================= */
+
+.input-hint {
+
+    text-align: center;
+
+    margin-top: 12px;
+
+    font-size: 10px;
+
+    color: rgba(255,255,255,0.3);
+
+    letter-spacing: 0.5px;
+}
+
+
+/* =========================================
+   SIGNAL INDICATOR
+========================================= */
+
+.signal-indicator {
+
+    position: absolute;
+
+    bottom: 30px;
+    left: 40px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 10px;
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 1.5px;
+
+    color: rgba(150,200,255,0.5);
+
+    z-index: 10;
+}
+
+.signal-dot {
+
+    width: 6px;
+    height: 6px;
+
+    border-radius: 50%;
+
+    background: #00c8ff;
+
+    box-shadow: 0 0 10px #00c8ff;
+}
+
+
+/* =========================================
+   RESPONSIVE DESIGN
+========================================= */
+
+@media (max-width: 1000px) {
+
+    .hero-screen {
+
+        flex-direction: column;
+
+        padding: 60px 20px;
+
+        gap: 20px;
+
+    }
+
+    .superhero {
+
+        width: 100%;
+
+        min-height: 500px;
+
+    }
+
+    .hero-image-container {
+
+        transform: scale(0.75);
+
+    }
+
+    .conversation {
+
+        width: min(470px, 92vw);
+
+        margin-right: 0;
+
+    }
+
+    .signal-indicator {
+
+        position: relative;
+
+        bottom: auto;
+        left: auto;
+
+        margin-top: 20px;
+
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .hero-screen {
+
+        min-height: 100vh;
+
+        padding: 30px 15px 70px;
+
+    }
+
+    .superhero {
+
+        min-height: 420px;
+
+    }
+
+    .hero-image-container {
+
+        transform: scale(0.55);
+
+    }
+
+    .conversation {
+
+        padding: 22px;
+
+        border-radius: 18px;
+
+    }
+
+    .message-text {
+
+        font-size: 13px;
+
+    }
+
+    .big-question {
+
+        font-size: 17px;
+
+    }
+
+    .user-input-area input {
+
+        height: 50px;
+
+    }
+
+    .user-input-area button {
+
+        width: 50px;
+        height: 50px;
+
+    }
+
+}
+
+/* ========================================
+   PROBLEM INPUT
+======================================== */
+
+.problem-input {
+    margin-top: 25px;
+}
+
+.problem-input textarea {
+    width: 100%;
+    height: 150px;
+
+    padding: 18px;
+
+    resize: none;
+
+    border-radius: 14px;
+
+    outline: none;
+
+    border: 1px solid rgba(100, 190, 255, 0.25);
+
+    background: rgba(0, 0, 0, 0.3);
+
+    color: white;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+    transition: 0.3s;
+}
+
+.problem-input textarea::placeholder {
+    color: rgba(255, 255, 255, 0.35);
+}
+
+.problem-input textarea:focus {
+    border-color: rgba(70, 200, 255, 0.8);
+
+    box-shadow:
+        0 0 20px rgba(0, 160, 255, 0.2);
+}
+
+.problem-input button {
+    width: 100%;
+
+    margin-top: 12px;
+
+    height: 52px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    color: white;
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: 12px;
+
+    letter-spacing: 1px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #087cff,
+            #7b35ff
+        );
+
+    box-shadow:
+        0 0 20px rgba(60, 100, 255, 0.35);
+
+    transition: 0.3s;
+}
+
+.problem-input button:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 0 30px rgba(60, 140, 255, 0.6);
+}
+
+
+/* =====================================================
+   NOVA GUARDIAN MODE
+   OUTER SPACE + SHIELD SCREEN
+===================================================== */
+
+
+/* =====================================================
+   SPACE SCREEN
+===================================================== */
+
+.space-screen {
+
+    min-height: 100vh;
+    width: 100%;
+
+    position: relative;
+
+    overflow: hidden;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    flex-direction: column;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 40%,
+            rgba(50, 60, 160, 0.18),
+            transparent 30%
+        ),
+
+        radial-gradient(
+            circle at 20% 80%,
+            rgba(90, 30, 160, 0.18),
+            transparent 35%
+        ),
+
+        radial-gradient(
+            circle at 80% 20%,
+            rgba(0, 100, 200, 0.12),
+            transparent 30%
+        ),
+
+        #02040d;
+
+}
+
+
+/* =====================================================
+   STARS
+===================================================== */
+
+.space-stars {
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+
+        radial-gradient(
+            circle,
+            rgba(255,255,255,0.9) 1px,
+            transparent 1.5px
+        ),
+
+        radial-gradient(
+            circle,
+            rgba(120,200,255,0.7) 1px,
+            transparent 1.5px
+        );
+
+    background-size:
+
+        90px 90px,
+
+        150px 150px;
+
+    background-position:
+
+        0 0,
+
+        40px 80px;
+
+    opacity: 0.45;
+
+    animation:
+        spaceDrift 25s linear infinite;
+
+}
+
+
+.stars-two {
+
+    background-size:
+        180px 180px;
+
+    background-position:
+        90px 30px;
+
+    opacity: 0.25;
+
+    animation:
+        spaceDriftReverse 35s linear infinite;
+
+}
+
+
+@keyframes spaceDrift {
+
+    from {
+        transform:
+            translateY(0);
+    }
+
+    to {
+        transform:
+            translateY(-120px);
+    }
+
+}
+
+
+@keyframes spaceDriftReverse {
+
+    from {
+        transform:
+            translateY(-100px);
+    }
+
+    to {
+        transform:
+            translateY(80px);
+    }
+
+}
+
+
+/* =====================================================
+   NEBULA
+===================================================== */
+
+.nebula {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    filter: blur(100px);
+
+    pointer-events: none;
+
+    opacity: 0.35;
+
+}
+
+
+.nebula-one {
+
+    width: 500px;
+    height: 500px;
+
+    background:
+        rgba(40, 90, 255, 0.25);
+
+    top: -180px;
+    left: -150px;
+
+    animation:
+        nebulaFloat 12s ease-in-out infinite alternate;
+
+}
+
+
+.nebula-two {
+
+    width: 600px;
+    height: 600px;
+
+    background:
+        rgba(110, 40, 220, 0.2);
+
+    right: -200px;
+    bottom: -250px;
+
+    animation:
+        nebulaFloat 15s ease-in-out infinite alternate-reverse;
+
+}
+
+
+.nebula-three {
+
+    width: 350px;
+    height: 350px;
+
+    background:
+        rgba(0, 180, 255, 0.12);
+
+    left: 45%;
+    top: 20%;
+
+    animation:
+        nebulaPulse 8s ease-in-out infinite;
+
+}
+
+
+@keyframes nebulaFloat {
+
+    from {
+        transform:
+            translate(0, 0)
+            scale(1);
+    }
+
+    to {
+        transform:
+            translate(50px, -30px)
+            scale(1.15);
+    }
+
+}
+
+
+@keyframes nebulaPulse {
+
+    0%,
+    100% {
+        opacity: 0.15;
+        transform: scale(0.9);
+    }
+
+    50% {
+        opacity: 0.35;
+        transform: scale(1.15);
+    }
+
+}
+
+
+/* =====================================================
+   SHOOTING STARS
+===================================================== */
+
+.shooting-star {
+
+    position: absolute;
+
+    width: 2px;
+
+    height: 100px;
+
+    background:
+        linear-gradient(
+            to bottom,
+            transparent,
+            rgba(255,255,255,0.9)
+        );
+
+    transform:
+        rotate(45deg);
+
+    opacity: 0;
+
+}
+
+
+.shooting-one {
+
+    top: 10%;
+    left: 20%;
+
+    animation:
+        shootingStar 7s linear infinite;
+
+}
+
+
+.shooting-two {
+
+    top: 30%;
+    right: 20%;
+
+    animation:
+        shootingStar 9s linear 3s infinite;
+
+}
+
+
+@keyframes shootingStar {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translate(0, 0)
+            rotate(45deg);
+
+    }
+
+    5% {
+
+        opacity: 1;
+
+    }
+
+    15% {
+
+        opacity: 0;
+
+        transform:
+            translate(300px, 300px)
+            rotate(45deg);
+
+    }
+
+    100% {
+
+        opacity: 0;
+
+    }
+
+}
+
+
+/* =====================================================
+   NOVA AREA
+===================================================== */
+
+.nova-area {
+
+    position: absolute;
+
+    top: 30px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 250px;
+
+    height: 220px;
+
+    z-index: 3;
+
+}
+
+
+.nova-glow {
+
+    position: absolute;
+
+    width: 200px;
+
+    height: 200px;
+
+    left: 50%;
+
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    background:
+        rgba(0, 170, 255, 0.15);
+
+    filter: blur(45px);
+
+    animation:
+        novaGlow 3s ease-in-out infinite;
+
+}
+
+
+@keyframes novaGlow {
+
+    0%,
+    100% {
+        transform:
+            translate(-50%, -50%)
+            scale(0.9);
+
+        opacity: 0.5;
+    }
+
+    50% {
+        transform:
+            translate(-50%, -50%)
+            scale(1.15);
+
+        opacity: 1;
+    }
+
+}
+
+
+.nova-character {
+
+    position: relative;
+
+    width: 100%;
+
+    height: 100%;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    animation:
+        novaAppear 1.2s ease-out;
+
+}
+
+
+@keyframes novaAppear {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            translateY(-80px)
+            scale(0.7);
+
+    }
+
+    100% {
+
+        opacity: 1;
+
+        transform:
+            translateY(0)
+            scale(1);
+
+    }
+
+}
+
+
+.nova-character .hero-placeholder {
+
+    width: 140px;
+
+    height: 180px;
+
+    border-radius:
+        70px 70px 30px 30px;
+
+    background:
+        linear-gradient(
+            160deg,
+            rgba(50,100,180,0.4),
+            rgba(50,20,120,0.6)
+        );
+
+    border:
+        1px solid
+        rgba(100,200,255,0.5);
+
+    box-shadow:
+
+        0 0 25px
+        rgba(0,160,255,0.35),
+
+        inset 0 0 30px
+        rgba(120,60,255,0.2);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    animation:
+        novaFloat 4s ease-in-out infinite;
+
+}
+
+
+@keyframes novaFloat {
+
+    0%,
+    100% {
+        transform:
+            translateY(0);
+    }
+
+    50% {
+        transform:
+            translateY(-8px);
+    }
+
+}
+
+
+.nova-character .hero-symbol {
+
+    width: 65px;
+
+    height: 65px;
+
+    font-size: 32px;
+
+}
+
+
+/* =====================================================
+   SHIELD CONTAINER
+===================================================== */
+
+.shield-container {
+
+    position: relative;
+
+    width: 650px;
+
+    height: 500px;
+
+    margin-top: 100px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    z-index: 5;
+
+}
+
+
+/* =====================================================
+   SHIELD RINGS
+===================================================== */
+
+.shield-ring {
+
+    position: absolute;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(80,200,255,0.25);
+
+    pointer-events: none;
+
+}
+
+
+.ring-1 {
+
+    width: 580px;
+    height: 580px;
+
+    animation:
+        ringRotate 18s linear infinite;
+
+}
+
+
+.ring-2 {
+
+    width: 500px;
+    height: 500px;
+
+    border-style: dashed;
+
+    animation:
+        ringRotateReverse 25s linear infinite;
+
+}
+
+
+.ring-3 {
+
+    width: 430px;
+    height: 430px;
+
+    animation:
+        ringPulse 4s ease-in-out infinite;
+
+}
+
+
+@keyframes ringRotate {
+
+    from {
+        transform:
+            rotate(0deg);
+    }
+
+    to {
+        transform:
+            rotate(360deg);
+    }
+
+}
+
+
+@keyframes ringRotateReverse {
+
+    from {
+        transform:
+            rotate(360deg);
+    }
+
+    to {
+        transform:
+            rotate(0deg);
+    }
+
+}
+
+
+@keyframes ringPulse {
+
+    0%,
+    100% {
+        transform:
+            scale(0.95);
+
+        opacity: 0.3;
+    }
+
+    50% {
+        transform:
+            scale(1.05);
+
+        opacity: 0.8;
+    }
+
+}
+
+
+/* =====================================================
+   MAIN GUARDIAN SHIELD
+===================================================== */
+
+.guardian-shield {
+
+    position: relative;
+
+    width: 560px;
+    height: 600px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background:
+        linear-gradient(
+            160deg,
+            rgba(25,110,190,0.25),
+            rgba(70,30,150,0.30)
+        );
+
+    clip-path:
+        polygon(
+            50% 0%,
+            94% 18%,
+            88% 68%,
+            72% 86%,
+            50% 100%,
+            28% 86%,
+            12% 68%,
+            6% 18%
+        );
+
+    filter:
+        drop-shadow(
+            0 0 18px
+            rgba(0,190,255,0.8)
+        )
+        drop-shadow(
+            0 0 45px
+            rgba(100,50,255,0.35)
+        );
+
+    animation:
+        shieldPop
+        1.1s
+        cubic-bezier(.17,.67,.25,1.25)
+        both;
+}
+
+
+@keyframes shieldPop {
+
+    0% {
+        opacity: 0;
+        transform:
+            scale(0.05)
+            rotate(-8deg);
+    }
+
+    60% {
+        opacity: 1;
+        transform:
+            scale(1.08)
+            rotate(2deg);
+    }
+
+    80% {
+        transform:
+            scale(0.97)
+            rotate(-1deg);
+    }
+
+    100% {
+        opacity: 1;
+        transform:
+            scale(1)
+            rotate(0deg);
+    }
+}
+
+
+@keyframes shieldPop {
+
+    0% {
+
+        opacity: 0;
+
+        transform:
+            scale(0.05)
+            rotate(-8deg);
+
+    }
+
+    60% {
+
+        opacity: 1;
+
+        transform:
+            scale(1.08)
+            rotate(2deg);
+
+    }
+
+    80% {
+
+        transform:
+            scale(0.97)
+            rotate(-1deg);
+
+    }
+
+    100% {
+
+        transform:
+            scale(1)
+            rotate(0deg);
+
+    }
+
+}
+
+
+/* =====================================================
+   SHIELD INNER
+===================================================== */
+
+.shield-inner {
+
+    width: 500px;
+    height: 540px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 55px 60px;
+
+    clip-path:
+        polygon(
+            50% 0%,
+            94% 18%,
+            88% 68%,
+            72% 86%,
+            50% 100%,
+            28% 86%,
+            12% 68%,
+            6% 18%
+        );
+
+    background:
+        rgba(3,10,35,0.93);
+}
+
+
+/* =====================================================
+   SHIELD ICON
+===================================================== */
+
+.shield-icon {
+
+    width: 48px;
+
+    height: 48px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-family:
+        "Orbitron",
+        sans-serif;
+
+    font-size: 20px;
+
+    font-weight: 700;
+
+    color: white;
+
+    border:
+        1px solid
+        rgba(80,210,255,0.8);
+
+    box-shadow:
+        0 0 20px
+        rgba(0,180,255,0.5);
+
+    margin-bottom: 12px;
+
+}
+
+
+.shield-status {
+
+    font-family:
+        "Orbitron",
+        sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 3px;
+
+    color:
+        rgba(100,215,255,0.85);
+
+    margin-bottom: 8px;
+
+}
+
+
+.shield-small-text {
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    color:
+        rgba(255,255,255,0.35);
+
+    margin-bottom: 12px;
+
+}
+
+
+/* =====================================================
+   SHIELD QUESTION
+===================================================== */
+
+.shield-inner h1 {
+
+    font-family:
+        "Orbitron",
+        sans-serif;
+
+    font-size: 18px;
+
+    font-weight: 500;
+
+    color:
+        rgba(255,255,255,0.85);
+
+    margin-bottom: 5px;
+
+}
+
+
+.shield-inner h1 span {
+
+    color:
+        #6cddff;
+
+}
+
+
+.shield-inner h2 {
+
+    font-family:
+        "Orbitron",
+        sans-serif;
+
+    font-size: 25px;
+
+    font-weight: 700;
+
+    color: white;
+
+    text-shadow:
+        0 0 15px
+        rgba(80,200,255,0.5);
+
+    margin-bottom: 12px;
+
+}
+
+
+.shield-description {
+
+    font-size: 12px;
+
+    color:
+        rgba(255,255,255,0.5);
+
+}
+
+/* =====================================================
+   TEXT INPUT INSIDE SHIELD
+===================================================== */
+
+.shield-input-area {
+
+    width: 100%;
+
+    margin-top: 18px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    z-index: 20;
+}
+
+
+/* TEXTAREA */
+
+.shield-input-area textarea {
+
+    width: 100%;
+
+    height: 100px;
+
+    padding: 14px 16px;
+
+    resize: none;
+
+    outline: none;
+
+    border-radius: 12px;
+
+    border:
+        1px solid
+        rgba(80,200,255,0.4);
+
+    background:
+        rgba(0,5,20,0.75);
+
+    color: white;
+
+    font-family:
+        "Poppins",
+        sans-serif;
+
+    font-size: 12px;
+
+    line-height: 1.5;
+
+    backdrop-filter:
+        blur(10px);
+
+    transition:
+        0.3s;
+}
+
+
+.shield-input-area textarea::placeholder {
+
+    color:
+        rgba(255,255,255,0.35);
+}
+
+
+.shield-input-area textarea:focus {
+
+    border-color:
+        rgba(70,210,255,0.9);
+
+    box-shadow:
+        0 0 20px
+        rgba(0,160,255,0.25);
+}
+
+
+/* =====================================================
+   SEND SIGNAL BUTTON
+===================================================== */
+
+.shield-input-area button {
+
+    width: 100%;
+
+    height: 45px;
+
+    margin-top: 9px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    color: white;
+
+    font-family:
+        "Orbitron",
+        sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 1.5px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #087cff,
+            #7435ff
+        );
+
+    box-shadow:
+        0 0 20px
+        rgba(70,100,255,0.4);
+
+    transition:
+        0.3s;
+}
+
+
+.shield-input-area button:hover {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 0 30px
+        rgba(70,150,255,0.7);
+}
+
+
+.shield-input-area button:active {
+
+    transform:
+        scale(0.97);
+}
+
+
+.shield-input-area button:disabled {
+
+    cursor: default;
+
+    opacity: 0.8;
+
+    transform: none;
+}
+
+/* =====================================================
+   HELP INPUT
+===================================================== */
+
+/*.help-input {
+
+    position: relative;
+
+    width: 550px;
+
+    z-index: 10;
+
+    margin-top: -5px;
+
+    animation:
+        inputAppear 1s ease-out 0.8s both;
+
+}*/
+
+
+@keyframes inputAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(25px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
+
+
+.help-input textarea {
+
+    width: 100%;
+
+    height: 100px;
+
+    padding: 16px 18px;
+
+    resize: none;
+
+    outline: none;
+
+    border-radius: 14px;
+
+    border:
+        1px solid
+        rgba(80,200,255,0.3);
+
+    background:
+        rgba(3,8,25,0.8);
+
+    color: white;
+
+    font-family:
+        "Poppins",
+        sans-serif;
+
+    font-size: 13px;
+
+    backdrop-filter:
+        blur(15px);
+
+    transition: 0.3s;
+
+}
+
+
+.help-input textarea::placeholder {
+
+    color:
+        rgba(255,255,255,0.35);
+
+}
+
+
+.help-input textarea:focus {
+
+    border-color:
+        rgba(70,210,255,0.8);
+
+    box-shadow:
+        0 0 25px
+        rgba(0,160,255,0.18);
+
+}
+
+
+/* =====================================================
+   SEND BUTTON
+===================================================== */
+
+.help-input button {
+
+    width: 100%;
+
+    height: 50px;
+
+    margin-top: 10px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    gap: 10px;
+
+    color: white;
+
+    font-family:
+        "Orbitron",
+        sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #087cff,
+            #7435ff
+        );
+
+    box-shadow:
+        0 0 25px
+        rgba(70,100,255,0.35);
+
+    transition: 0.3s;
+
+}
+
+
+.help-input button:hover {
+
+    transform:
+        translateY(-3px);
+
+    box-shadow:
+        0 0 35px
+        rgba(70,150,255,0.65);
+
+}
+
+
+.send-icon {
+
+    font-size: 16px;
+
+}
+
+
+/* =====================================================
+   PRIVACY NOTE
+===================================================== */
+
+.privacy-note {
+
+    text-align: center;
+
+    margin-top: 8px;
+
+    font-size: 9px;
+
+    color:
+        rgba(255,255,255,0.3);
+
+}
+
+
+/* =====================================================
+   SPACE STATUS
+===================================================== */
+
+.space-status {
+
+    position: absolute;
+
+    bottom: 25px;
+
+    left: 30px;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    font-family:
+        "Orbitron",
+        sans-serif;
+
+    font-size: 8px;
+
+    letter-spacing: 1.5px;
+
+    color:
+        rgba(120,200,255,0.5);
+
+}
+
+
+.status-light {
+
+    width: 6px;
+
+    height: 6px;
+
+    border-radius: 50%;
+
+    background:
+        #00d9ff;
+
+    box-shadow:
+        0 0 12px
+        #00d9ff;
+
+    animation:
+        statusPulse 1.5s infinite;
+
+}
+
+
+@keyframes statusPulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.3;
+    }
+
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 700px) {
+
+    .nova-area {
+
+        top: 15px;
+
+        transform:
+            translateX(-50%)
+            scale(0.75);
+
+    }
+
+
+    .shield-container {
+
+        width: 100%;
+
+        height: 450px;
+
+        margin-top: 80px;
+
+        transform: scale(0.78);
+
+    }
+
+
+    .help-input {
+
+        width: 88vw;
+
+        margin-top: -30px;
+
+    }
+
+
+    .space-status {
+
+        left: 15px;
+
+        bottom: 15px;
+
+        font-size: 7px;
+
+    }
+
+}
+
+
+@media (max-width: 450px) {
+
+    .shield-container {
+
+        transform: scale(0.62);
+
+        margin-top: 65px;
+
+    }
+
+
+    .help-input {
+
+        margin-top: -65px;
+
+    }
+
+}
+
+.email-error {
+
+    margin-top: 10px;
+
+    text-align: center;
+
+    color: #ff6b8a;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 11px;
+
+    animation:
+        errorAppear 0.25s ease;
+
+}
+
+
+@keyframes errorAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(-5px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+/* =====================================================
+   SIGNAL RECEIVED POPUP
+===================================================== */
+
+.signal-popup {
+
+    position: fixed;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background:
+        rgba(1, 4, 15, 0.72);
+
+    backdrop-filter:
+        blur(12px);
+
+    z-index: 100;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    pointer-events: none;
+
+    transition:
+        opacity 0.4s ease,
+        visibility 0.4s ease;
+}
+
+
+/* SHOW POPUP */
+
+.signal-popup.active {
+
+    opacity: 1;
+
+    visibility: visible;
+
+    pointer-events: auto;
+}
+
+
+/* =====================================================
+   POPUP SHIELD
+===================================================== */
+
+.popup-shield {
+
+    width: 420px;
+
+    min-height: 380px;
+
+    padding: 55px 45px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    background:
+        linear-gradient(
+            160deg,
+            rgba(12,35,75,0.96),
+            rgba(20,8,60,0.97)
+        );
+
+    clip-path:
+        polygon(
+            50% 0%,
+            94% 18%,
+            88% 68%,
+            72% 86%,
+            50% 100%,
+            28% 86%,
+            12% 68%,
+            6% 18%
+        );
+
+    filter:
+        drop-shadow(
+            0 0 20px
+            rgba(0,200,255,0.8)
+        )
+        drop-shadow(
+            0 0 60px
+            rgba(110,50,255,0.5)
+        );
+
+    transform:
+        scale(0.4)
+        rotate(-8deg);
+
+    transition:
+        transform 0.65s
+        cubic-bezier(.17,.67,.25,1.25);
+}
+
+
+/* POPUP OPEN ANIMATION */
+
+.signal-popup.active .popup-shield {
+
+    transform:
+        scale(1)
+        rotate(0deg);
+}
+
+
+/* =====================================================
+   POPUP ICON
+===================================================== */
+
+.popup-icon {
+
+    width: 65px;
+
+    height: 65px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-family:
+        "Orbitron",
+        sans-serif;
+
+    font-size: 30px;
+
+    color: white;
+
+    border:
+        2px solid
+        rgba(80,220,255,0.9);
+
+    box-shadow:
+        0 0 20px
+        rgba(0,190,255,0.7),
+        0 0 50px
+        rgba(80,80,255,0.4);
+
+    animation:
+        popupIconPulse 2s
+        ease-in-out infinite;
+
+}
+
+
+@keyframes popupIconPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+
+}
+
+
+/* =====================================================
+   POPUP TEXT
+===================================================== */
+
+.popup-label {
+
+    margin-top: 18px;
+
+    font-family:
+        "Orbitron",
+        sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    color:
+        #6cddff;
+}
+
+
+.popup-shield h2 {
+
+    margin-top: 15px;
+
+    font-family:
+        "Orbitron",
+        sans-serif;
+
+    font-size: 23px;
+
+    color: white;
+
+    text-shadow:
+        0 0 15px
+        rgba(80,200,255,0.5);
+}
+
+
+.popup-shield p {
+
+    margin-top: 10px;
+
+    max-width: 280px;
+
+    font-family:
+        "Poppins",
+        sans-serif;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+
+    color:
+        rgba(255,255,255,0.62);
+}
+
+
+/* =====================================================
+   CONTINUE BUTTON
+===================================================== */
+
+.popup-shield button {
+
+    margin-top: 22px;
+
+    width: 180px;
+
+    height: 42px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    cursor: pointer;
+
+    color: white;
+
+    font-family:
+        "Orbitron",
+        sans-serif;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #087cff,
+            #7435ff
+        );
+
+    box-shadow:
+        0 0 20px
+        rgba(70,100,255,0.4);
+
+    transition:
+        0.3s;
+}
+
+
+.popup-shield button:hover {
+
+    transform:
+        translateY(-2px);
+
+    box-shadow:
+        0 0 30px
+        rgba(70,150,255,0.7);
+}
+
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 500px) {
+
+    .popup-shield {
+
+        width: 90vw;
+
+        min-height: 350px;
+
+        padding:
+            45px 30px;
+    }
+
+}
+
+
+/* ========================================
+   SIGNAL RECEIVED POPUP
+======================================== */
+
+.signal-popup {
+
+    position: fixed;
+
+    inset: 0;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: rgba(0, 0, 20, 0.75);
+
+    backdrop-filter: blur(12px);
+
+    z-index: 1000;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transition: 0.4s ease;
+}
+
+
+/* Show popup */
+
+.signal-popup.active {
+
+    opacity: 1;
+
+    visibility: visible;
+}
+
+
+/* Popup box */
+
+.popup-shield {
+
+    width: 420px;
+
+    max-width: 90vw;
+
+    padding: 45px 35px;
+
+    text-align: center;
+
+    border-radius: 25px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(20, 40, 90, 0.95),
+            rgba(10, 10, 35, 0.98)
+        );
+
+    border: 1px solid rgba(80, 210, 255, 0.45);
+
+    box-shadow:
+
+        0 0 30px rgba(0, 180, 255, 0.35),
+
+        0 0 80px rgba(100, 50, 255, 0.25),
+
+        0 25px 80px rgba(0, 0, 0, 0.7);
+
+    transform: scale(0.75) translateY(30px);
+
+    transition: 0.45s cubic-bezier(.17,.67,.25,1.25);
+}
+
+
+/* Popup animation */
+
+.signal-popup.active .popup-shield {
+
+    transform: scale(1) translateY(0);
+}
+
+
+/* Check icon */
+
+.popup-icon {
+
+    width: 65px;
+
+    height: 65px;
+
+    margin: 0 auto 18px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    border-radius: 50%;
+
+    font-size: 30px;
+
+    color: white;
+
+    border: 1px solid rgba(80, 210, 255, 0.8);
+
+    background: rgba(0, 150, 255, 0.12);
+
+    box-shadow:
+
+        0 0 20px rgba(0, 190, 255, 0.6),
+
+        0 0 50px rgba(80, 60, 255, 0.35);
+
+    animation: popupIconPulse 2s ease-in-out infinite;
+}
+
+
+@keyframes popupIconPulse {
+
+    0%, 100% {
+
+        transform: scale(1);
+
+        box-shadow:
+            0 0 20px rgba(0, 190, 255, 0.5);
+    }
+
+    50% {
+
+        transform: scale(1.08);
+
+        box-shadow:
+            0 0 35px rgba(0, 210, 255, 0.8);
+    }
+}
+
+
+/* SIGNAL RECEIVED */
+
+.popup-label {
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    color: #69d7ff;
+
+    margin-bottom: 15px;
+}
+
+
+/* Main message */
+
+.popup-shield h2 {
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: 23px;
+
+    color: white;
+
+    margin-bottom: 15px;
+
+    text-shadow:
+        0 0 15px rgba(80, 200, 255, 0.5);
+}
+
+
+/* Description */
+
+.popup-shield p {
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+    color: rgba(255,255,255,0.65);
+
+    margin-bottom: 25px;
+}
+
+
+/* Continue button */
+
+#closePopup {
+
+    width: 100%;
+
+    height: 48px;
+
+    border: none;
+
+    border-radius: 12px;
+
+    cursor: pointer;
+
+    color: white;
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 2px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #087cff,
+            #7435ff
+        );
+
+    box-shadow:
+        0 0 25px rgba(70,100,255,0.35);
+
+    transition: 0.3s;
+}
+
+
+#closePopup:hover {
+
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 0 35px rgba(70,150,255,0.65);
+}
+
+
+/* Mobile */
+
+@media (max-width: 500px) {
+
+    .popup-shield {
+
+        padding: 35px 25px;
+
+    }
+
+    .popup-shield h2 {
+
+        font-size: 19px;
+
+    }
+
+}
+/* STORY PAGE */
+
+.story-page {
+    overflow-y: auto;
+}
+/* =========================================
+   NOVA STORY - FINAL LAYOUT FIX
+========================================= */
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+
+/* Main screen */
+
+#story {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    min-height: 100vh;
+    overflow: hidden;
+
+    display: block;
+}
+
+
+/* =========================================
+   STORY TEXT SIDE
+========================================= */
+
+.story-area {
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    width: 52%;
+    height: 100vh;
+
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 20;
+}
+
+
+/* =========================================
+   STORY CARD
+========================================= */
+
+.story-card {
+
+    width: 82%;
+    max-width: 650px;
+
+    padding: 0;
+
+    position: relative;
+
+    /* IMPORTANT */
+    transform: none;
+
+    animation: storyEnter 0.8s ease;
+
+}
+
+
+/* =========================================
+   NARRATOR
+========================================= */
+
+.narrator {
+
+    display: block;
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 5px;
+
+    color: #9994ff;
+
+    margin-bottom: 16px;
+
+}
+
+
+/* =========================================
+   SMALL LINE
+========================================= */
+
+.story-line {
+
+    width: 50px;
+
+    height: 2px;
+
+    margin-bottom: 18px;
+
+}
+
+
+/* =========================================
+   HEADING
+========================================= */
+
+#title {
+
+    position: relative;
+
+    margin: 0 0 25px 0;
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: clamp(34px, 4vw, 62px);
+
+    line-height: 1.05;
+
+    letter-spacing: -1.5px;
+
+    color: white;
+
+}
+
+
+/* =========================================
+   STORY TEXT
+========================================= */
+
+.story-text {
+
+    width: 100%;
+
+    max-width: 620px;
+
+    /* DON'T let the text push the button
+       outside the screen */
+
+    height: 38vh;
+
+    min-height: 180px;
+
+    max-height: 420px;
+
+    overflow-y: auto;
+
+    padding-right: 15px;
+
+    font-size: 16px;
+
+    line-height: 1.85;
+
+    color: rgba(255,255,255,0.78);
+
+    white-space: pre-line;
+
+}
+
+
+/* scrollbar */
+
+.story-text::-webkit-scrollbar {
+
+    width: 3px;
+
+}
+
+
+.story-text::-webkit-scrollbar-track {
+
+    background: rgba(255,255,255,0.05);
+
+}
+
+
+.story-text::-webkit-scrollbar-thumb {
+
+    background: #7770ff;
+
+}
+
+
+/* =========================================
+   CONTINUE BUTTON
+========================================= */
+
+.continue-button {
+
+    position: relative;
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin-top: 22px;
+
+    height: 48px;
+
+    padding: 0 28px;
+
+    z-index: 100;
+
+}
+
+
+/* =========================================
+   IMAGE SIDE
+========================================= */
+
+.visual-area {
+
+    position: absolute;
+
+    right: 0;
+
+    top: 0;
+
+    width: 48%;
+
+    height: 100vh;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    z-index: 5;
+
+    pointer-events: none;
+
+}
+
+
+.visual-frame {
+
+    width: 90%;
+
+    height: 90%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+#sceneImage {
+
+    max-width: 100%;
+
+    max-height: 85vh;
+
+    object-fit: contain;
+
+}
+
+
+/* =========================================
+   LOGO
+========================================= */
+
+.nova-logo {
+
+    z-index: 200;
+
+}
+
+
+/* =========================================
+   PROGRESS BAR
+========================================= */
+
+.progress {
+
+    position: fixed;
+
+    left: 8%;
+
+    bottom: 25px;
+
+    z-index: 200;
+
+}
+
+
+/* =========================================
+   SCENE ENTER
+========================================= */
+
+@keyframes storyEnter {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(25px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+
+/* =========================================
+   SCENE CHANGE
+========================================= */
+
+.story-card.changing {
+
+    animation:
+        storyExit 0.4s ease forwards;
+
+}
+
+
+@keyframes storyExit {
+
+    from {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+    to {
+
+        opacity: 0;
+
+        transform: translateY(-20px);
+
+    }
+
+}
+
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (max-width: 1000px) {
+
+    .story-area {
+
+        width: 58%;
+
+    }
+
+    .visual-area {
+
+        width: 42%;
+
+        opacity: 0.55;
+
+    }
+
+    #title {
+
+        font-size: 42px;
+
+    }
+
+    .story-text {
+
+        font-size: 15px;
+
+        height: 36vh;
+
+    }
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 700px) {
+
+    body {
+
+        overflow: hidden;
+
+    }
+
+    .visual-area {
+
+        width: 100%;
+
+        height: 45vh;
+
+        opacity: 0.25;
+
+    }
+
+    .story-area {
+
+        width: 100%;
+
+        height: 100vh;
+
+        align-items: flex-end;
+
+        padding-bottom: 55px;
+
+    }
+
+    .story-card {
+
+        width: 88%;
+
+    }
+
+    #title {
+
+        font-size: 35px;
+
+        margin-bottom: 18px;
+
+    }
+
+    .story-text {
+
+        height: 30vh;
+
+        min-height: 150px;
+
+        font-size: 14px;
+
+        line-height: 1.7;
+
+    }
+
+    .continue-button {
+
+        margin-top: 15px;
+
+    }
+
+}
+/* =================================
+   NOVA CHARACTER IMAGE
+================================= */
+
+.nova-character {
+    position: relative;
+    width: 320px;
+    height: 430px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    z-index: 5;
+}
+
+.nova-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center bottom;
+
+    display: block;
+
+    filter:
+        drop-shadow(0 0 18px rgba(50, 120, 255, 0.8))
+        drop-shadow(0 0 40px rgba(90, 60, 255, 0.45));
+
+    animation: novaFloat 4s ease-in-out infinite;
+}
+
+@keyframes novaFloat {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+
+}
+/* =====================================================
+   FINAL NOVA CHARACTER FRAME OVERRIDES
+===================================================== */
+
+.hero-placeholder {
+    width: 360px;
+    height: 560px;
+    position: relative;
+    border-radius: 180px 180px 50px 50px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nova-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+    border-radius: inherit;
+    filter:
+        drop-shadow(0 0 18px rgba(30, 140, 255, 0.9))
+        drop-shadow(0 0 45px rgba(90, 60, 255, 0.7));
+    animation: novaFloat 4s ease-in-out infinite;
+}
+
+@keyframes novaFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+
+/* Story image */
+.visual-area {
+    pointer-events: none;
+}
+
+.visual-frame {
+    width: 90%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#sceneImage {
+    max-width: 100%;
+    max-height: 85vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.35s ease;
+    filter:
+        drop-shadow(0 0 20px rgba(40, 140, 255, 0.35))
+        drop-shadow(0 0 45px rgba(100, 50, 255, 0.25));
+}
+
+#sceneImage.visible {
+    opacity: 1;
+}
+
+/* Story particles */
+.floating-particles {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.power-particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: rgba(100, 210, 255, 0.9);
+    box-shadow:
+        0 0 8px rgba(0, 190, 255, 0.9),
+        0 0 18px rgba(100, 70, 255, 0.7);
+    animation: particleRise 3s ease-out forwards;
+}
+
+@keyframes particleRise {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.5);
+    }
+    20% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-100px) scale(1.4);
+    }
+}
+
+/* Story progress */
+.progress-fill {
+    height: 2px;
+    width: 0;
+    background: linear-gradient(90deg, #087cff, #7435ff);
+    box-shadow: 0 0 12px rgba(60, 150, 255, 0.7);
+    transition: width 0.5s ease;
+}
+
+/* Final mobile sizing */
+@media (max-width: 700px) {
+    .hero-placeholder {
+        width: 280px;
+        height: 430px;
+    }
+
+    #sceneImage {
+        max-width: 90%;
+        max-height: 42vh;
+    }
+}
+/* =========================================
+   TRANSPARENT NOVA IMAGE - FINAL
+========================================= */
+
+.hero-placeholder {
+    width: 360px;
+    height: 560px;
+    position: relative;
+
+    border-radius: 180px 180px 50px 50px;
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Keep your existing frame */
+    background:
+        linear-gradient(
+            160deg,
+            rgba(50, 90, 150, 0.35),
+            rgba(30, 15, 80, 0.5)
+        );
+
+    border: 1px solid rgba(120, 190, 255, 0.4);
+
+    box-shadow:
+        0 0 50px rgba(0, 130, 255, 0.35),
+        inset 0 0 50px rgba(100, 60, 255, 0.15);
+}
+
+.nova-image {
+    width: 100%;
+    height: 100%;
+
+    /* IMPORTANT for transparent PNG */
+    object-fit: contain;
+    object-position: center bottom;
+
+    display: block;
+
+    border-radius: inherit;
+
+    filter:
+        drop-shadow(0 0 18px rgba(30, 140, 255, 0.9))
+        drop-shadow(0 0 45px rgba(90, 60, 255, 0.7));
+
+    animation: novaFloat 4s ease-in-out infinite;
+}
+
+/* NOVA ENERGY ORB */
+
+.shield-icon {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: none;
+    background: transparent;
+    box-shadow: none;
+
+    margin-bottom: 12px;
+}
+
+.shield-icon img {
+    width: 70px;
+    height: 70px;
+
+    object-fit: contain;
+    display: block;
+
+    filter:
+        drop-shadow(0 0 8px rgba(0, 200, 255, 0.9))
+        drop-shadow(0 0 20px rgba(80, 80, 255, 0.8));
+
+    animation: orbGlow 2s ease-in-out infinite;
+}
+
+@keyframes orbGlow {
+    0%, 100% {
+        transform: scale(0.95);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+}

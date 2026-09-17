@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>NOVA | The Diary</title>
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="diary.css">
+
+</head>
+
+
+<body>
+
+<div class="diary-page">
+
+    <div class="stars"></div>
+
+    <div class="diary-glow"></div>
+
+
+    <!-- TOP TEXT -->
+
+    <div class="diary-intro">
+
+        <div class="small-text">
+             A STORY WAITING TO BE TOLD
+        </div>
+
+        <h1>
+            Before NOVA
+        </h1>
+
+        <p>
+            Every hero has a beginning.
+        </p>
+
+    </div>
+
+
+    <!-- DIARY -->
+
+    <div class="diary-wrapper">
+
+        <div class="diary-book"
+             id="diaryBook">
+
+            <div class="diary-cover">
+
+                <div class="cover-symbol">
+                    N
+                </div>
+
+                <h2>
+                    HER STORY
+                </h2>
+
+                <p>
+                    The story of the girl
+                    who became NOVA.
+                </p>
+
+                <span>
+                    OPEN
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <p class="hint">
+        Click the diary to discover her story
+    </p>
+
+
+</div>
+
+
+<script>
+
+const diaryBook =
+    document.getElementById("diaryBook");
+
+diaryBook.addEventListener("click", function () {
+
+    diaryBook.classList.add("opening");
+
+    setTimeout(() => {
+
+        window.location.href = "story.html";
+
+    }, 900);
+
+});
+
+</script>
+
+
+</body>
+
+</html>

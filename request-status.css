@@ -1,0 +1,481 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    min-height: 100%;
+}
+
+body {
+    min-height: 100vh;
+
+    font-family: "Poppins", sans-serif;
+
+    color: white;
+
+    background:
+        radial-gradient(
+            circle at 50% 35%,
+            rgba(75, 80, 255, 0.22),
+            transparent 40%
+        ),
+        linear-gradient(
+            135deg,
+            #02030b,
+            #08052a,
+            #030615
+        );
+
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   SPACE
+========================= */
+
+.space {
+    position: fixed;
+
+    inset: 0;
+
+    pointer-events: none;
+
+    background-image:
+        radial-gradient(
+            1px 1px at 10% 20%,
+            white,
+            transparent
+        ),
+        radial-gradient(
+            1px 1px at 25% 75%,
+            white,
+            transparent
+        ),
+        radial-gradient(
+            1px 1px at 45% 30%,
+            white,
+            transparent
+        ),
+        radial-gradient(
+            1px 1px at 65% 80%,
+            white,
+            transparent
+        ),
+        radial-gradient(
+            1px 1px at 80% 20%,
+            white,
+            transparent
+        ),
+        radial-gradient(
+            1px 1px at 92% 65%,
+            white,
+            transparent
+        );
+
+    opacity: 0.65;
+
+    animation: stars 25s linear infinite;
+}
+
+@keyframes stars {
+
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-40px);
+    }
+}
+
+
+/* =========================
+   PAGE
+========================= */
+
+.status-page {
+
+    min-height: 100vh;
+
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px 20px;
+}
+
+
+/* =========================
+   NOVA LOGO
+========================= */
+
+.nova-logo {
+
+    position: fixed;
+
+    top: 25px;
+    left: 30px;
+
+    width: 50px;
+    height: 50px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: 22px;
+
+    border: 1px solid
+        rgba(90, 170, 255, 0.7);
+
+    box-shadow:
+        0 0 20px
+        rgba(40, 130, 255, 0.5);
+
+    color: white;
+}
+
+
+/* =========================
+   CARD
+========================= */
+
+.status-card {
+
+    width: min(680px, 100%);
+
+    padding: 55px 50px;
+
+    text-align: center;
+
+    border-radius: 28px;
+
+    background:
+        rgba(7, 12, 35, 0.88);
+
+    border: 1px solid
+        rgba(90, 150, 255, 0.25);
+
+    box-shadow:
+        0 0 80px
+        rgba(30, 90, 255, 0.16),
+
+        inset 0 0 50px
+        rgba(60, 50, 255, 0.05);
+
+    backdrop-filter: blur(18px);
+
+    animation: cardEnter 0.8s ease;
+}
+
+@keyframes cardEnter {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.lumari {
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 4px;
+
+    color: #75bfff;
+
+    margin-bottom: 25px;
+}
+
+h1 {
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: clamp(30px, 5vw, 48px);
+
+    line-height: 1.1;
+
+    margin-bottom: 25px;
+}
+
+h1 span {
+
+    display: block;
+
+    color: #68b9ff;
+
+    text-shadow:
+        0 0 25px
+        rgba(60, 160, 255, 0.6);
+}
+
+.description {
+
+    color: rgba(235, 242, 255, 0.72);
+
+    line-height: 1.8;
+
+    font-size: 15px;
+
+    margin-bottom: 30px;
+}
+
+
+/* =========================
+   REQUEST ID
+========================= */
+
+.request-box {
+
+    padding: 20px;
+
+    margin-bottom: 30px;
+
+    border-radius: 15px;
+
+    border: 1px solid
+        rgba(70, 150, 255, 0.3);
+
+    background:
+        rgba(30, 80, 160, 0.1);
+}
+
+.request-label {
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    color: rgba(200, 220, 255, 0.55);
+
+    margin-bottom: 10px;
+}
+
+.request-id {
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: 20px;
+
+    letter-spacing: 2px;
+
+    color: #76c4ff;
+
+    text-shadow:
+        0 0 18px
+        rgba(50, 160, 255, 0.7);
+}
+
+
+/* =========================
+   PROCESS STEPS
+========================= */
+
+.process {
+
+    text-align: left;
+
+    max-width: 500px;
+
+    margin: 0 auto;
+}
+
+.step {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 14px 16px;
+
+    margin-bottom: 9px;
+
+    border-radius: 10px;
+
+    color: rgba(210, 225, 255, 0.4);
+
+    background:
+        rgba(255, 255, 255, 0.025);
+
+    transition:
+        all 0.5s ease;
+}
+
+.step.active {
+
+    color: #b9dcff;
+
+    border: 1px solid
+        rgba(70, 150, 255, 0.25);
+
+    background:
+        rgba(40, 110, 255, 0.08);
+
+    box-shadow:
+        0 0 20px
+        rgba(40, 120, 255, 0.08);
+}
+
+.step.complete {
+
+    color: #91f5c4;
+}
+
+.icon {
+
+    width: 22px;
+
+    text-align: center;
+
+    font-size: 18px;
+}
+
+.complete .icon {
+
+    color: #62ffae;
+}
+
+
+/* =========================
+   MESSAGE
+========================= */
+
+.message {
+
+    min-height: 25px;
+
+    margin: 25px 0;
+
+    font-size: 13px;
+
+    color: #75bfff;
+}
+
+
+/* =========================
+   HOME BUTTON
+========================= */
+
+.home-button {
+
+    width: 100%;
+
+    max-width: 400px;
+
+    padding: 16px 22px;
+
+    border-radius: 12px;
+
+    border: 1px solid
+        rgba(80, 170, 255, 0.5);
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(20, 100, 220, 0.25),
+            rgba(80, 50, 220, 0.25)
+        );
+
+    color: white;
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: 12px;
+
+    letter-spacing: 1.5px;
+
+    cursor: pointer;
+
+    margin-top: 10px;
+
+    opacity: 0;
+
+    transform: translateY(10px);
+
+    pointer-events: none;
+
+    transition: all 0.35s ease;
+}
+
+.home-button.ready {
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+    pointer-events: auto;
+}
+
+.home-button:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 0 30px
+        rgba(50, 150, 255, 0.35);
+}
+
+.home-button span {
+
+    margin-left: 10px;
+
+    font-size: 18px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 600px) {
+
+    .status-card {
+        padding: 40px 22px;
+    }
+
+    .nova-logo {
+        top: 15px;
+        left: 15px;
+
+        width: 42px;
+        height: 42px;
+    }
+
+    .lumari {
+        font-size: 9px;
+        letter-spacing: 2px;
+    }
+
+    .request-id {
+        font-size: 15px;
+    }
+}

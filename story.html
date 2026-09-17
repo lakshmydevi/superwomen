@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NOVA | Her Story</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="story.css">
+</head>
+
+<body>
+
+<div id="story" class="scene-ordinary">
+
+    <div class="scene-background">
+        <div class="stars"></div>
+        <div class="aurora"></div>
+        <div class="moon"></div>
+        <div class="city"></div>
+        <div class="glow"></div>
+    </div>
+
+    <div class="visual-area">
+        <div class="visual-frame">
+            <div class="image-halo"></div>
+
+            <img
+                id="sceneImage"
+                src=""
+                alt="Scene from NOVA's story">
+
+            <div id="visualFallback" class="visual-fallback" aria-hidden="true">
+                <span>✦</span>
+            </div>
+        </div>
+
+        <div id="floatingParticles" class="floating-particles"></div>
+    </div>
+
+    <main class="story-area">
+        <article class="story-card" id="storyCard">
+
+            <div class="story-line"></div>
+
+            <div class="narrator">
+                THE LUMARI · KEEPERS OF MEMORY
+            </div>
+
+            <h1 id="title">The Girl Who Felt Too Much</h1>
+
+            <div id="storyText" class="story-text"></div>
+
+            <button id="nextButton" class="continue-button" type="button">
+                <span>CONTINUE</span>
+                <b>→</b>
+            </button>
+
+        </article>
+    </main>
+
+    <div class="progress">
+        <div id="progressFill" class="progress-fill"></div>
+    </div>
+
+    <div class="progress-label" id="progressLabel">01 / 12</div>
+
+    <div class="shield-icon">
+    <img src="images/ball.png" alt="Nova Energy Orb">
+</div>
+
+    <div id="flash" class="flash"></div>
+
+</div>
+
+<script src="story.js"></script>
+</body>
+</html>

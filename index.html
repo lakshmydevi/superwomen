@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NOVA | Guardian of Lost Hope</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <main class="hero-screen">
+
+        <!-- =================================
+             BACKGROUND
+        ================================== -->
+
+        <div class="stars"></div>
+
+        <div class="glow glow-one"></div>
+        <div class="glow glow-two"></div>
+
+
+        <!-- =================================
+             NOVA
+        ================================== -->
+
+        <section class="superhero">
+
+            <div class="hero-image-container">
+
+                <div class="energy-circle"></div>
+
+                <div class="hero-placeholder">
+
+                    <img
+                        src="images/nova2.png"
+                        alt="NOVA - Guardian of Lost Hope"
+                        class="nova-image"
+                    >
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================
+             CONVERSATION
+        ================================== -->
+
+        <section class="conversation">
+
+            <div class="conversation-header">
+
+                <span class="online-dot"></span>
+
+                <span>NOVA • ONLINE</span>
+
+            </div>
+
+
+            <!-- NOVA INTRO -->
+
+            <div class="message nova-message">
+
+                <div class="message-name">
+                    NOVA
+                </div>
+
+                <div class="message-text">
+
+                    <p>
+                        Hey! 👋
+                    </p>
+
+                    <p>
+                        I'm <strong>NOVA</strong>.
+                    </p>
+
+                    <p>
+                        I'm here to help people
+                        who need someone to listen.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- NAME QUESTION -->
+
+            <div class="message nova-message">
+
+                <div class="message-text">
+
+                    <p>
+                        So...
+                    </p>
+
+                    <p class="big-question">
+                        What's your name?
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- NAME INPUT -->
+
+            <div class="user-input-area">
+
+                <input
+                    type="text"
+                    id="nameInput"
+                    placeholder="Type your name..."
+                    autocomplete="off"
+                >
+
+                <button
+                    id="sendName"
+                    type="button"
+                >
+                    →
+                </button>
+
+            </div>
+
+
+            <p class="input-hint">
+                Press Enter or click the arrow
+            </p>
+
+        </section>
+
+
+        <!-- =================================
+             SIGNAL STATUS
+        ================================== -->
+
+        <div class="signal-indicator">
+
+            <span class="signal-dot"></span>
+
+            SECURE SIGNAL CONNECTION
+
+        </div>
+
+    </main>
+
+
+    <!-- =================================
+         JAVASCRIPT
+    ================================== -->
+
+    <script>
+
+        const nameInput =
+            document.getElementById("nameInput");
+
+        const sendName =
+            document.getElementById("sendName");
+
+
+        function goToNextPage() {
+
+            const name =
+                nameInput.value.trim();
+
+
+            /* Prevent empty name */
+
+            if (name === "") {
+
+                nameInput.focus();
+
+                return;
+
+            }
+
+
+            /* Save visitor name */
+
+            sessionStorage.setItem(
+                "novaName",
+                name
+            );
+
+
+            /* Go to age */
+
+            window.location.href =
+                "age.html";
+
+        }
+
+
+        /* Arrow button */
+
+        sendName.addEventListener(
+            "click",
+            goToNextPage
+        );
+
+
+        /* Enter key */
+
+        nameInput.addEventListener(
+            "keydown",
+            function(event) {
+
+                if (event.key === "Enter") {
+
+                    event.preventDefault();
+
+                    goToNextPage();
+
+                }
+
+            }
+        );
+
+    </script>
+
+</body>
+
+</html>

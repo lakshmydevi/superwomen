@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>NOVA | Request Status</title>
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="request-status.css">
+</head>
+
+<body>
+
+    <div class="space"></div>
+
+    <main class="status-page">
+
+        
+
+        <section class="status-card">
+
+            <div class="lumari">
+                THE LUMARI • REQUEST ARCHIVE
+            </div>
+
+            <h1>
+                NOVA IS PROCESSING
+                <span>YOUR GRIEVANCE</span>
+            </h1>
+
+            <p class="description">
+                Your grievance request has been received.
+                NOVA is carefully checking your request
+                and preparing the next step.
+            </p>
+
+
+            <!-- REQUEST ID -->
+
+            <div class="request-box">
+
+                <div class="request-label">
+                    UNIQUE REQUEST ID
+                </div>
+
+                <div id="requestId"
+                     class="request-id">
+                    GENERATING...
+                </div>
+
+            </div>
+
+
+            <!-- PROCESS -->
+
+            <div class="process">
+
+                <div id="step1"
+                     class="step">
+
+                    <div class="icon">◌</div>
+
+                    <span>
+                        Request received
+                    </span>
+
+                </div>
+
+
+                <div id="step2"
+                     class="step">
+
+                    <div class="icon">◌</div>
+
+                    <span>
+                        Checking your request
+                    </span>
+
+                </div>
+
+
+                <div id="step3"
+                     class="step">
+
+                    <div class="icon">◌</div>
+
+                    <span>
+                        NOVA is processing your grievance
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div id="message"
+                 class="message">
+
+                NOVA is checking your request...
+
+            </div>
+
+
+            <!-- HOME -->
+
+            <button id="homeButton"
+                    class="home-button">
+
+                RETURN TO NOVA HOME
+
+                <span>→</span>
+
+            </button>
+
+        </section>
+
+    </main>
+
+    <script src="request-status.js"></script>
+
+</body>
+
+</html>

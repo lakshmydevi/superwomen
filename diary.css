@@ -1,0 +1,625 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+
+    min-height: 100vh;
+
+    font-family: "Poppins", sans-serif;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at center,
+            #20204a 0%,
+            #09091b 45%,
+            #03030b 100%
+        );
+
+    color: white;
+
+}
+
+
+.diary-page {
+
+    min-height: 100vh;
+
+    position: relative;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+}
+
+
+/* ===============================
+   STARS
+================================ */
+
+.stars {
+
+    position: absolute;
+
+    inset: 0;
+
+    background-image:
+        radial-gradient(white 1px, transparent 1px),
+        radial-gradient(#8e8cff 1px, transparent 1px);
+
+    background-size:
+        80px 80px,
+        130px 130px;
+
+    opacity: 0.35;
+
+    animation: starsMove 20s linear infinite;
+
+}
+
+
+@keyframes starsMove {
+
+    from {
+        transform: translateY(0);
+    }
+
+    to {
+        transform: translateY(-80px);
+    }
+
+}
+
+
+/* ===============================
+   GLOW
+================================ */
+
+.diary-glow {
+
+    position: absolute;
+
+    width: 500px;
+
+    height: 500px;
+
+    background: #756cff;
+
+    filter: blur(180px);
+
+    opacity: 0.12;
+
+}
+
+
+/* ===============================
+   INTRO
+================================ */
+
+.diary-intro {
+
+    position: relative;
+
+    z-index: 5;
+
+    text-align: center;
+
+    margin-bottom: 35px;
+
+    animation: fadeIn 1.5s ease;
+
+}
+
+
+.small-text {
+
+    font-family: "Orbitron", sans-serif;
+
+    letter-spacing: 5px;
+
+    font-size: 12px;
+
+    opacity: 0.6;
+
+}
+
+
+.diary-intro h1 {
+
+    font-family: "Orbitron", sans-serif;
+
+    margin: 12px 0;
+
+    font-size: clamp(25px, 4vw, 42px);
+
+}
+
+
+.diary-intro p {
+
+    opacity: 0.7;
+
+}
+
+
+/* ===============================
+   DIARY
+================================ */
+
+.diary-wrapper {
+
+    position: relative;
+
+    z-index: 10;
+
+    perspective: 1200px;
+
+}
+
+
+.diary-book {
+
+    width: 320px;
+
+    height: 430px;
+
+    cursor: pointer;
+
+    transition: transform 0.4s ease;
+
+}
+
+
+.diary-book:hover {
+
+    transform:
+        translateY(-12px)
+        rotateY(-5deg);
+
+}
+
+
+.diary-cover {
+
+    width: 100%;
+
+    height: 100%;
+
+    border-radius: 8px 18px 18px 8px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 40px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #181836,
+            #0b0b20
+        );
+
+    border: 1px solid rgba(150, 140, 255, 0.5);
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,0.7),
+        inset 0 0 40px rgba(130,120,255,0.08);
+
+    position: relative;
+
+}
+
+
+.diary-cover::before {
+
+    content: "";
+
+    position: absolute;
+
+    left: 15px;
+
+    top: 0;
+
+    bottom: 0;
+
+    width: 3px;
+
+    background: #7770ff;
+
+    opacity: 0.5;
+
+}
+
+
+.cover-symbol {
+
+    width: 75px;
+
+    height: 75px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: 30px;
+
+    border: 1px solid #8d87ff;
+
+    box-shadow:
+        0 0 30px rgba(120,110,255,0.5);
+
+    margin-bottom: 30px;
+
+}
+
+
+.diary-cover h2 {
+
+    font-family: "Orbitron", sans-serif;
+
+    letter-spacing: 4px;
+
+}
+
+
+.diary-cover p {
+
+    margin: 20px 0;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+
+    opacity: 0.7;
+
+}
+
+
+.diary-cover span {
+
+    font-family: "Orbitron", sans-serif;
+
+    font-size: 11px;
+
+    letter-spacing: 3px;
+
+    color: #aaa5ff;
+
+}
+
+
+/* ===============================
+   OPEN ANIMATION
+================================ */
+
+.diary-book.opening {
+
+    animation: diaryOpen 1s ease forwards;
+
+}
+
+
+@keyframes diaryOpen {
+
+    0% {
+        transform: rotateY(0);
+    }
+
+    100% {
+        transform:
+            rotateY(-110deg)
+            scale(1.1);
+        opacity: 0;
+    }
+
+}
+
+
+/* ===============================
+   HINT
+================================ */
+
+.hint {
+
+    position: relative;
+
+    z-index: 10;
+
+    margin-top: 25px;
+
+    font-size: 12px;
+
+    opacity: 0.45;
+
+    letter-spacing: 1px;
+
+}
+
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+/* =========================================
+   DIARY PAGE ENHANCEMENTS
+========================================= */
+
+/* Make the diary feel alive */
+.diary-page::before {
+    content: "";
+    position: absolute;
+    width: 700px;
+    height: 700px;
+    border-radius: 50%;
+
+    border: 1px solid rgba(130, 120, 255, 0.08);
+
+    animation: diaryOrbit 18s linear infinite;
+
+    pointer-events: none;
+}
+
+@keyframes diaryOrbit {
+
+    from {
+        transform: rotate(0deg) scale(1);
+    }
+
+    to {
+        transform: rotate(360deg) scale(1.08);
+    }
+
+}
+
+
+/* =========================================
+   FLOATING PARTICLES
+========================================= */
+
+.diary-page::after {
+
+    content: "✦   ·   ✧   ·   ✦   ·   ✧";
+
+    position: absolute;
+
+    width: 100%;
+    text-align: center;
+
+    top: 15%;
+
+    font-size: 18px;
+
+    letter-spacing: 35px;
+
+    color: rgba(170, 160, 255, 0.35);
+
+    animation: floatingStars 6s ease-in-out infinite;
+
+    pointer-events: none;
+
+}
+
+@keyframes floatingStars {
+
+    0%,
+    100% {
+        transform: translateY(0);
+        opacity: 0.25;
+    }
+
+    50% {
+        transform: translateY(-20px);
+        opacity: 0.65;
+    }
+
+}
+
+
+/* =========================================
+   DIARY GLOW
+========================================= */
+
+.diary-cover {
+
+    transition:
+        transform 0.5s ease,
+        box-shadow 0.5s ease;
+
+}
+
+
+.diary-cover:hover {
+
+    box-shadow:
+
+        0 35px 100px rgba(0, 0, 0, 0.8),
+
+        0 0 45px rgba(120, 110, 255, 0.25),
+
+        inset 0 0 50px rgba(130, 120, 255, 0.12);
+
+}
+
+
+/* =========================================
+   DIARY SYMBOL
+========================================= */
+
+.cover-symbol {
+
+    animation:
+        diarySymbolPulse 3s ease-in-out infinite;
+
+}
+
+
+@keyframes diarySymbolPulse {
+
+    0%,
+    100% {
+
+        transform: scale(1);
+
+        box-shadow:
+            0 0 20px rgba(120,110,255,0.3);
+
+    }
+
+    50% {
+
+        transform: scale(1.08);
+
+        box-shadow:
+            0 0 40px rgba(120,110,255,0.7);
+
+    }
+
+}
+
+
+/* =========================================
+   CLICK HINT
+========================================= */
+
+.hint {
+
+    animation:
+        hintPulse 2s ease-in-out infinite;
+
+}
+
+
+@keyframes hintPulse {
+
+    0%,
+    100% {
+        opacity: 0.35;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+
+}
+
+
+/* =========================================
+   DIARY OPEN SCREEN
+========================================= */
+
+.diary-page.leaving {
+
+    animation:
+        diaryPageExit 1.2s ease forwards;
+
+}
+
+
+@keyframes diaryPageExit {
+
+    0% {
+
+        opacity: 1;
+
+        transform: scale(1);
+
+    }
+
+    100% {
+
+        opacity: 0;
+
+        transform: scale(1.08);
+
+        filter: blur(10px);
+
+    }
+
+}
+
+
+/* =========================================
+   MOBILE DIARY
+========================================= */
+
+@media (max-width: 600px) {
+
+    .diary-book {
+
+        width: 270px;
+
+        height: 370px;
+
+    }
+
+
+    .diary-cover {
+
+        padding: 30px;
+
+    }
+
+
+    .diary-cover h2 {
+
+        font-size: 20px;
+
+        letter-spacing: 3px;
+
+    }
+
+
+    .diary-cover p {
+
+        font-size: 12px;
+
+    }
+
+
+    .cover-symbol {
+
+        width: 65px;
+
+        height: 65px;
+
+        font-size: 25px;
+
+        margin-bottom: 22px;
+
+    }
+
+}

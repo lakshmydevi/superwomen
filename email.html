@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>NOVA | Contact</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<main class="hero-screen">
+
+    <div class="stars"></div>
+
+    <div class="glow glow-one"></div>
+    <div class="glow glow-two"></div>
+
+
+    <section class="superhero">
+
+        <div class="hero-image-container">
+
+            <div class="energy-circle"></div>
+
+            <div class="hero-placeholder">
+
+                <img
+                    src="images/nova2.png"
+                    alt="NOVA - Guardian of Lost Hope"
+                    class="nova-image"
+                >
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section class="conversation">
+
+        <div class="conversation-header">
+
+            <span class="online-dot"></span>
+
+            <span>NOVA • ONLINE</span>
+
+        </div>
+
+
+        <div class="message nova-message">
+
+            <div class="message-name">
+                NOVA
+            </div>
+
+            <div class="message-text">
+
+                <p>
+                    Perfect, <span id="userName"></span>. 📡
+                </p>
+
+                <p class="big-question">
+                    What's your email address?
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="user-input-area">
+
+            <input
+                type="email"
+                id="emailInput"
+                placeholder="Enter your email..."
+            >
+
+            <button id="sendEmail">
+
+
+                →
+            </button>
+
+        </div>
+
+
+        <p class="input-hint">
+            Press Enter or click the arrow
+        </p>
+
+    </section>
+
+
+    <div class="signal-indicator">
+
+        <span class="signal-dot"></span>
+
+        SECURE SIGNAL CONNECTION
+
+    </div>
+
+</main>
+
+
+<script>
+
+    const name =
+        sessionStorage.getItem("novaName");
+
+
+    if (!name) {
+
+        window.location.href =
+            "index.html";
+
+    }
+
+
+    document.getElementById(
+        "userName"
+    ).textContent = name;
+
+
+    const emailInput =
+        document.getElementById(
+            "emailInput"
+        );
+
+    const sendEmail =
+        document.getElementById(
+            "sendEmail"
+        );
+
+function showEmailError(message) {
+
+    let errorMessage =
+        document.getElementById("emailError");
+
+
+    if (!errorMessage) {
+
+        errorMessage =
+            document.createElement("p");
+
+        errorMessage.id =
+            "emailError";
+
+        errorMessage.className =
+            "email-error";
+
+        emailInput.parentElement
+            .after(errorMessage);
+
+    }
+
+
+    errorMessage.textContent =
+        message;
+
+}
+
+
+
+    function submitEmail() {
+
+    const email = emailInput.value.trim();
+
+    // Basic valid email format
+    const emailPattern =
+    /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+
+
+    // Empty email
+    if (email === "") {
+
+        showEmailError(
+            "Please enter your email address."
+        );
+
+        emailInput.focus();
+
+        return;
+
+    }
+
+
+    // Invalid email
+    if (!emailPattern.test(email)) {
+
+        showEmailError(
+            "Please enter a valid email address."
+        );
+
+        emailInput.focus();
+
+        return;
+
+    }
+
+
+    // Email is valid
+    sessionStorage.setItem(
+        "novaEmail",
+        email
+    );
+
+
+    // Only now redirect
+    window.location.href =
+        "help.html";
+
+}
+
+
+    sendEmail.addEventListener(
+        "click",
+        submitEmail
+    );
+
+
+    emailInput.addEventListener(
+        "keydown",
+        function(event) {
+
+            if (event.key === "Enter") {
+
+                event.preventDefault();
+
+                submitEmail();
+
+            }
+
+        }
+    );
+
+</script>
+
+</body>
+
+</html>

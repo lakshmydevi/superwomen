@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>NOVA | Guardian Mode</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800&family=Poppins:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- Your CSS -->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+
+<body>
+
+<main class="space-screen">
+
+
+    <!-- =================================
+         SPACE BACKGROUND
+    ================================== -->
+
+    <div class="space-stars"></div>
+
+    <div class="space-stars stars-two"></div>
+
+    <div class="nebula nebula-one"></div>
+
+    <div class="nebula nebula-two"></div>
+
+    <div class="nebula nebula-three"></div>
+
+    <div class="shooting-star shooting-one"></div>
+
+    <div class="shooting-star shooting-two"></div>
+
+
+    <!-- =================================
+         NOVA
+    ================================== -->
+
+    <section class="nova-area">
+
+        <div class="nova-glow"></div>
+
+        <div class="nova-character">
+
+            <div class="hero-placeholder">
+
+                <img
+                    src="images/nova.jpeg"
+                    alt="NOVA - Guardian of Lost Hope"
+                    class="nova-image"
+                >
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================
+         GUARDIAN SHIELD
+    ================================== -->
+
+    <section class="shield-container">
+
+        <div class="shield-ring ring-1"></div>
+
+        <div class="shield-ring ring-2"></div>
+
+        <div class="shield-ring ring-3"></div>
+
+
+        <!-- MAIN SHIELD -->
+
+        <div class="guardian-shield">
+
+            <div class="shield-inner">
+
+
+                <!-- Shield Icon -->
+
+                <div class="shield-icon">
+                    <img src="images/ball.png" >
+                </div>
+
+
+                <!-- Status -->
+
+                <div class="shield-status">
+                    GUARDIAN MODE
+                </div>
+
+
+                <p class="shield-small-text">
+                    SECURE CHANNEL ACTIVE
+                </p>
+
+
+                <!-- Visitor Name -->
+
+                <h1>
+                    So,
+                    <span id="userName"></span>...
+                </h1>
+
+
+                <h2>
+                    How can I help you?
+                </h2>
+
+
+                <p class="shield-description">
+                    Tell me what's happening.
+                    I'm listening.
+                </p>
+
+
+                <!-- =================================
+                     GRIEVANCE INPUT
+                ================================== -->
+
+                <div class="shield-input-area">
+
+                    <textarea
+                        id="problemInput"
+                        placeholder="Type your message here..."
+                        maxlength="1000"
+                    ></textarea>
+
+
+                    <button
+                        id="sendProblem"
+                        type="button"
+                    >
+
+                        <span>
+                            SEND SIGNAL
+                        </span>
+
+                        <span class="send-icon">
+                            ⚡
+                        </span>
+
+                    </button>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =================================
+         STATUS
+    ================================== -->
+
+    <div class="space-status">
+
+        <span class="status-light"></span>
+
+        NOVA SIGNAL • GUARDIAN MODE ACTIVE
+
+    </div>
+
+
+    <!-- =================================
+         SIGNAL RECEIVED POPUP
+    ================================== -->
+
+    <div
+        class="signal-popup"
+        id="signalPopup"
+    >
+
+        <div class="popup-shield">
+
+            <div class="popup-icon">
+                ✓
+            </div>
+
+
+            <div class="popup-label">
+                SIGNAL RECEIVED
+            </div>
+
+
+            <h2>
+                You're not alone.
+            </h2>
+
+
+            <p>
+                Your message has reached NOVA.
+                I'm here to help you.
+            </p>
+
+
+            <button
+                id="closePopup"
+                type="button"
+            >
+                CONTINUE
+            </button>
+
+        </div>
+
+    </div>
+
+
+</main>
+
+
+<!-- =================================
+     JAVASCRIPT
+================================== -->
+
+<script>
+
+/* =================================
+   GET VISITOR INFORMATION
+================================= */
+
+const visitorName =
+    sessionStorage.getItem("novaName") || "";
+
+const visitorAge =
+    sessionStorage.getItem("novaAge") || "";
+
+const visitorLocation =
+    sessionStorage.getItem("novaLocation") || "";
+
+const visitorEmail =
+    sessionStorage.getItem("novaEmail") || "";
+
+
+/* =================================
+   CHECK THAT VISITOR INFORMATION
+   EXISTS
+================================= */
+
+if (
+    !visitorName ||
+    !visitorAge ||
+    !visitorLocation ||
+    !visitorEmail
+) {
+
+    alert(
+        "Some visitor information is missing. Please start again from the beginning."
+    );
+
+    window.location.href = "index.html";
+
+}
+
+
+/* =================================
+   DISPLAY VISITOR NAME
+================================= */
+
+const userNameElement =
+    document.getElementById("userName");
+
+if (userNameElement) {
+
+    userNameElement.textContent =
+        visitorName || "Friend";
+
+}
+
+
+/* =================================
+   GET PAGE ELEMENTS
+================================= */
+
+const problemInput =
+    document.getElementById("problemInput");
+
+const sendProblem =
+    document.getElementById("sendProblem");
+
+const signalPopup =
+    document.getElementById("signalPopup");
+
+const closePopup =
+    document.getElementById("closePopup");
+
+
+/* =================================
+   SEND SIGNAL
+================================= */
+
+if (sendProblem) {
+
+    sendProblem.addEventListener(
+        "click",
+        async function () {
+
+
+            /* -----------------------------
+               GET GRIEVANCE
+            ----------------------------- */
+
+            const grievance =
+                problemInput.value.trim();
+
+
+            /* -----------------------------
+               CHECK GRIEVANCE
+            ----------------------------- */
+
+            if (grievance === "") {
+
+                alert(
+                    "Please tell NOVA what is happening."
+                );
+
+                problemInput.focus();
+
+                return;
+
+            }
+
+
+            /* -----------------------------
+               SHOW SENDING
+            ----------------------------- */
+
+            sendProblem.innerHTML = `
+                <span>SENDING...</span>
+                <span class="send-icon">⚡</span>
+            `;
+
+
+            sendProblem.disabled = true;
+
+            problemInput.disabled = true;
+
+
+            /* -----------------------------
+               SAVE GRIEVANCE
+            ----------------------------- */
+
+            sessionStorage.setItem(
+                "novaProblem",
+                grievance
+            );
+
+
+            /* =================================
+               SEND DATA TO PYTHON / FLASK
+            ================================= */
+
+            try {
+
+                const response = await fetch(
+                    "http://127.0.0.1:5000/api/grievance",
+                    {
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+
+                        body: JSON.stringify({
+
+                            name: visitorName,
+
+                            age: visitorAge,
+
+                            location: visitorLocation,
+
+                            email: visitorEmail,
+
+                            grievance: grievance
+
+                        })
+
+                    }
+                );
+
+
+                /* -----------------------------
+                   GET SERVER RESPONSE
+                ----------------------------- */
+
+                const result =
+                    await response.json();
+
+
+                console.log(
+                    "NOVA server response:",
+                    result
+                );
+
+
+                /* =================================
+                   SUCCESS
+                ================================= */
+
+                if (
+                    response.ok &&
+                    result.success
+                ) {
+
+                    sendProblem.innerHTML = `
+                        <span>SIGNAL SENT</span>
+                        <span>✓</span>
+                    `;
+
+
+                    /* -----------------------------
+                       SHOW POPUP
+                    ----------------------------- */
+
+                    setTimeout(
+                        function () {
+
+                            if (signalPopup) {
+
+                                signalPopup.classList.add(
+                                    "active"
+                                );
+
+                            }
+
+                        },
+                        500
+                    );
+
+                }
+
+
+                /* =================================
+                   SERVER ERROR
+                ================================= */
+
+                else {
+
+                    throw new Error(
+                        result.message ||
+                        "The server could not process the signal."
+                    );
+
+                }
+
+            }
+
+
+            /* =================================
+               CONNECTION ERROR
+            ================================= */
+
+            catch (error) {
+
+                console.error(
+                    "NOVA SIGNAL ERROR:",
+                    error
+                );
+
+
+                /* -----------------------------
+                   RESET BUTTON
+                ----------------------------- */
+
+                sendProblem.innerHTML = `
+                    <span>SEND SIGNAL</span>
+                    <span class="send-icon">⚡</span>
+                `;
+
+
+                sendProblem.disabled = false;
+
+                problemInput.disabled = false;
+
+
+                alert(
+                    "The signal could not be sent. Please make sure the Python server is running."
+                );
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =================================
+   CONTINUE BUTTON
+================================= */
+
+if (closePopup) {
+
+    closePopup.addEventListener(
+        "click",
+        function () {
+
+
+            if (signalPopup) {
+
+                signalPopup.classList.remove(
+                    "active"
+                );
+
+            }
+
+
+            window.location.href =
+                "diary.html";
+
+        }
+    );
+
+}
+
+
+/* =================================
+   CTRL + ENTER TO SEND
+================================= */
+
+if (problemInput) {
+
+    problemInput.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (
+                event.key === "Enter" &&
+                event.ctrlKey
+            ) {
+
+                event.preventDefault();
+
+                sendProblem.click();
+
+            }
+
+        }
+    );
+
+}
+
+</script>
+
+
+</body>
+
+</html>
